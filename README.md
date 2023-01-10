@@ -4,4 +4,4 @@ You can search wallpapers and download them :)
 It sources wallpapers from Pexels.com
 
 Preview: 
-![image](https://user-images.githubusercontent.com/66637389/211565958-322c00ed-0704-4eac-9011-f119f238e209.png)
+![image](https://user-images.githubusercontent.com/66637389/211566191-3c27a8d2-d2b6-407e-9fd8-e9ae8023dd34.png)
