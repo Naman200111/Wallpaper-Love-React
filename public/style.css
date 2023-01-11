@@ -18,6 +18,9 @@ img{
 }
 
 .hero__navbar{
+    position: sticky;
+    top: 0;
+    z-index: 1;
     min-height: 5em;
     background-color: rgb(246, 204, 238);
     display: flex;

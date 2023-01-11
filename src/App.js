@@ -22,12 +22,16 @@ export default function App() {
             .then(response => response.json())
             .then(response => setData(response.photos))
     }, [query, amount, page])
+
+    React.useEffect(() => {
+        window.scrollTo(0,0);
+    },[query, page])
     
-    console.log(data)
+    // console.log(data)
     const elements = data.map(function(item) {
         return (
-            <div class="component">
-                <a href={item.src.original} key={item.id}>
+            <div className="component" key={item.id}>
+                <a href={item.src.original}>
                     <img
                         className="image"
                         src={item.src.large2x}
@@ -35,7 +39,7 @@ export default function App() {
                     >
                     </img>
                 </a>
-                <div class="download--div" onClick={() => handleDownloadClick(item)}>
+                <div className="download--div" onClick={() => handleDownloadClick(item)}>
                     <img
                         className="download"
                         src="./images/download.png"
@@ -53,10 +57,21 @@ export default function App() {
     function handleClick() {
         if(search === "")return;
         setQuery(search)
+        setAmount(12);
+        setPage(1);
     }
     function handleChange(event) {
         setSearch(event.target.value)
     }
+    function handleKeyPress(event) {
+        if(event.key === 'Enter' && search !== '') {
+            setQuery(search)
+            console.log(event)
+            event.target.blur();
+            setAmount(12);
+            setPage(1);
+        }
+    } 
 
     function handleClickButton() {
         setAmount(oldAmount => {
@@ -83,6 +98,7 @@ export default function App() {
                         className="search"
                         placeholder="Search"
                         onChange={handleChange}
+                        onKeyDown={handleKeyPress}
                     />
                 </div>
                 <img
