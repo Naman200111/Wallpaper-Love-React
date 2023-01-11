@@ -79,11 +79,11 @@ export default function App() {
                 setPage(oldPage => oldPage+1);
                 return 12;
             }
-            else if(oldAmount+18 > 80) {
+            else if(oldAmount+12 > 80) {
                 return 80;
             }
             else {
-                return oldAmount+18;
+                return oldAmount+12;
             }
         });
     }
