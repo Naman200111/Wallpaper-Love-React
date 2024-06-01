@@ -3,6 +3,7 @@ import {saveAs} from "file-saver"
 
 export default function App() {
     const [data, setData] = React.useState([]);
+    const [loading, setLoading] = React.useState(false);
     const [query, setQuery] = React.useState("wallpaper");
     const [search, setSearch] = React.useState("");
     const [amount, setAmount] = React.useState(12);
@@ -18,17 +19,21 @@ export default function App() {
             }
         };
         
+        setLoading(true);
         fetch(`https://pexelsdimasv1.p.rapidapi.com/v1/search?query=${query}&per_page=${amount}&page=${page}`, options)
             .then(response => response.json())
-            .then(response => setData(response.photos))
+            .then(response => {
+                setLoading(false);
+                setData(response.photos);
+                setLoading(false);
+            });
     }, [query, amount, page])
 
     React.useEffect(() => {
         window.scrollTo(0,0);
     },[query, page])
     
-    // console.log(data)
-    const elements = data.map(function(item) {
+    const elements = data && data.map(function(item) {
         return (
             <div className="component" key={item.id}>
                 <a href={item.src.original}>
@@ -109,7 +114,11 @@ export default function App() {
                 />
             </div>
             <div className="images">
-                {elements}
+                {loading ? 
+                    <div className="loading">Loading...</div> :
+                    data ? elements :
+                    <div className="api-error">Failed to Fetch...</div>
+                }
             </div>
             <div className="footer">
                 <button className="footer__button" onClick={handleClickButton}>

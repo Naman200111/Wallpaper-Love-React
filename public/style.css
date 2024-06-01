@@ -99,6 +99,15 @@ img{
     margin: 0 20px;
 }
 
+.loading {
+    font-size: larger;
+}
+
+.api-error{
+    font-size: larger;
+    color: red;
+}
+
 .footer{
     display: flex;
     justify-content: center;
