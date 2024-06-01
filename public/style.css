@@ -104,6 +104,8 @@ img{
 }
 
 .api-error{
+    display: flex;
+    flex-direction: column;
     font-size: larger;
     color: red;
 }

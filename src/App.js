@@ -117,7 +117,12 @@ export default function App() {
                 {loading ? 
                     <div className="loading">Loading...</div> :
                     data ? elements :
-                    <div className="api-error">Failed to Fetch...</div>
+                    <div className="api-error">
+                        Failed to Fetch...
+                        <a target='_blank' href="https://pexelsdimasv1.p.rapidapi.com/v1">
+                            API Link
+                        </a>
+                    </div>
                 }
             </div>
             <div className="footer">
