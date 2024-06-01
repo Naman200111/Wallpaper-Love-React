@@ -119,7 +119,7 @@ export default function App() {
                     data ? elements :
                     <div className="api-error">
                         Failed to Fetch...
-                        <a target='_blank' href="https://pexelsdimasv1.p.rapidapi.com/v1">
+                        <a target='_blank' rel="noreferrer" href="https://pexelsdimasv1.p.rapidapi.com/v1">
                             API Link
                         </a>
                     </div>
